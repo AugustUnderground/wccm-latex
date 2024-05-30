@@ -12,11 +12,11 @@
 
 %%
 %% Author Block
-\author[1]{A. B. FamilyName}
 \corauth{C. D. FamilyName}
+\author[1]{A. B. FamilyName}
 \author[2]{E. F. FamilyName}
-\affil[1]{Department, University/Company Name.}
 \coraffil{Department, University/Company Name, Address, City, Country.}
+\affil[1]{Department, University/Company Name.}
 \affil[2]{Department, University/Company Name.}
 \email{cd\_author@company.com}
 
@@ -176,8 +176,11 @@ All body text should be justified against both margins. Body text should be
 
 %%
 %% Bibliography
-\bibliographystyle{IEEEtranS}
-\bibliography{bibliography}
+\begingroup
+  \bibliographystyle{IEEEtranS}
+  \setstretch{1}
+  \bibliography{bibliography}
+\endgroup
 
 For two authors please use ``A. B. FamilyName and C. D. FamilyName''. For three
 authors please use ``A. B. FamilyName, C. D. FamilyName, and E. F.

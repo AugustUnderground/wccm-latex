@@ -13,7 +13,6 @@
 \usepackage{soul}
 \usepackage[hidelinks]{hyperref}
 \usepackage{siunitx}
-%\usepackage{acronym}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -25,6 +24,7 @@
 \usepackage{ifthen}
 \usepackage[font=small]{caption}
 \usepackage{subcaption}
+\usepackage{setspace}
 
 %%
 %% Custom SI Units
@@ -135,4 +135,7 @@
 
 %%
 %% 1.5 × Line Spacing
+\makeatletter
+\let\@currsize\normalsize
+\makeatother
 \renewcommand{\baselinestretch}{1.5} 
