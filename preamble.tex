@@ -1,0 +1,138 @@
+\usepackage[ left   = 25.4mm
+           , right  = 25.4mm
+           , top    = 25.4mm
+           , bottom = 25.4mm
+           ]{geometry}
+\usepackage{authblk}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{nopageno}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{soul}
+\usepackage[hidelinks]{hyperref}
+\usepackage{siunitx}
+%\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+\usepackage[nolist,nohyperlinks]{acronym}
+\usepackage{times}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage[font=small]{caption}
+\usepackage{subcaption}
+
+%%
+%% Custom SI Units
+\DeclareSIUnit\point{\ensuremath{\mathrm{pt}}}
+
+%%
+%% Author Block
+
+%% Corresponding author commands
+\newlength{\corsep}\setlength{\corsep}{18pt}
+\newcommand{\corfont}{\itshape}
+\newcommand{\corsymb}{\textsuperscript{\textdagger}}
+\newcommand{\corauth}[1]{\author[ ]{#1\corsymb}}
+
+%% Title Block
+\makeatletter
+\newcommand{\email}[1]{\edef\@email{#1}}
+\newcommand{\coraffil}[1]{\edef\@coraffil{#1}}
+
+\renewcommand{\maketitle}{%
+\begin{center}
+    {\normalfont\noindent\ignorespaces\bfseries\@title\par}
+    \vspace{-7.0pt}
+    {\linespread{1.75}\noindent\ignorespaces\@author\par}
+
+\end{center}}
+
+\renewcommand{\Affilfont}{\normalsize}
+\renewcommand\@author{%
+  \ifx\AB@affillist\AB@empty%
+    \AB@author%
+  \else
+    \ifnum\value{affil}>\value{Maxaffil}%
+      \def\rlap##1{##1}%
+      \AB@authlist\\[0.5\corsep]%
+        {{\normalfont\corsymb}\corfont\@coraffil\\[-5pt]{\normalfont\corsymb}E-mail: \href{mailto:\@email}{\@email}}\\[0.25\affilsep]%
+        \AB@affillist
+    \else%
+      \AB@authors%
+    \fi%
+  \fi}
+\makeatother
+
+%% Settings
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{, }
+\renewcommand*{\Authands}{and }
+\renewcommand*{\Authfont}{\normalfont\footnotesize}
+\renewcommand*{\Affilfont}{\itshape\footnotesize}
+\setlength{\affilsep}{12pt}
+
+%%
+%% Abstract
+\makeatletter
+\renewenvironment{abstract}{%
+  \renewcommand{\baselinestretch}{1.0} 
+  \vspace*{5mm}
+  \noindent\begin{minipage}{1\textwidth}
+  \textbf{Abstract}\bigskip
+
+  %\normalfont\small\selectfont
+  \normalfont\normalsize\selectfont
+  \medskip
+
+}{\end{minipage}}
+\makeatother
+
+%%
+%% Keywords
+\makeatletter
+\newenvironment{keywords}{%
+  \renewcommand{\baselinestretch}{1.0} 
+  \medskip\noindent\begin{minipage}{1\textwidth}\textbf{Keywords:}
+}{\end{minipage}\vspace{10pt}}
+\makeatother
+
+%%
+%% Acknowledgements
+\makeatletter
+\newenvironment{acknowledgment}{%
+    \medskip
+    \noindent\begin{minipage}{1\textwidth}
+    \section*{Acknowledgments}
+}{\end{minipage}}
+\makeatother
+
+%%
+%% Reformatting Table and Figure lables
+%\renewcommand{\tablename}{\small\selectfont Tab.}
+%\renewcommand{\figurename}{\small Fig.}
+%\setlength\abovecaptionskip{2pt}
+\setlength\belowcaptionskip{-7.5pt}
+
+%%
+%% Section formatting
+\titleformat{\section}{\normalsize\normalfont}{\textbf{\thesection}}{0.5em}{\textbf}
+\titleformat{\subsection}{\normalsize\normalfont}{\textbf{\thesubsection}}{0.5em}{\textbf}
+\titleformat{\subsubsection}{\normalsize\normalfont}{\textbf{\thesubsubsection}}{0.5em}{\textbf}
+
+\titlespacing{\section}{0pt}{10pt}{10pt}
+\titlespacing{\subsection}{0pt}{10pt}{10pt}
+\titlespacing{\subsubsection}{0pt}{10pt}{10pt}
+
+%%
+%% No paragraph indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt} 
+
+%%
+%% 1.5 × Line Spacing
+\renewcommand{\baselinestretch}{1.5} 
